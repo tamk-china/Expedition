@@ -1,1 +1,62 @@
 # Expedition
+- off heap
+- java management
+- java agent
+- java unsafe
+- lambda functional
+- java io
+- jni
+- jit
+- axon
+- optional
+- jdk8
+	- steam
+	- base64
+	- parallelSort
+	- ConcurrentHashMap
+	- ForkJoinPool
+	- StampedLock
+	- DoubleAccumulator DoubleAdder
+- IntroSpector
+- cglib
+- spring aop
+- spring boot
+- spring security
+- jmx
+- http://www.cnblogs.com/edwardlauxh/archive/2010/04/25/1918603.html
+- jstack
+- jmap
+- jinfo
+- jps
+- jstat
+- osgi
+- mysql常用操作和优化 存储过程
+- 搜索工具
+	- lucence
+	- solr
+- 监控文件变化
+- thrift
+- java 扩展包
+	- guava
+	- 表达式处理
+	- google collections
+	- 反射处理的包
+	- beanUtils
+	- 配置工具  解析
+	- 文本编码检测
+	- Commons codec
+	- Commons-IO
+	- Commons-lang
+	- Java Base64
+	- 转义库
+	- 命令行解析器
+	- Commons Daemon
+	- protobuf
+	- camel
+	- 算法库
+	- jprotobuf
+	- Commons Chain
+	- 验证码
+	- java 脚手架
+	- Commons Transaction
+	- 内存文件系统
