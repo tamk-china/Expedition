@@ -35,7 +35,9 @@
 	- lucence
 	- solr
 - 监控文件变化
+- 详细了解java虚拟机的内存结构，包括jvm和java执行的内存结构，执行栈
 - thrift
+- 注释使用标签
 - java 扩展包
 	- guava
 	- 表达式处理
