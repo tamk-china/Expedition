@@ -38,6 +38,9 @@
 - 详细了解java虚拟机的内存结构，包括jvm和java执行的内存结构，执行栈
 - thrift
 - 注释使用标签
+- storm实时流处理
+- hadoop离线数据分析
+- Disruptor 队列功能
 - java 扩展包
 	- guava
 	- 表达式处理
@@ -62,3 +65,61 @@
 	- java 脚手架
 	- Commons Transaction
 	- 内存文件系统
+	- guice
+- 多线程缓存伪共享(Flase Sharing)问题
+	- 两个独立的变量可能放在同一个缓存行中，多线程中会出现写竞争，如果要写一个，必须让统一缓存行中的其他变量失效。可以通过填充字段来避免缓存伪共享。
+- 硬盘偶尔 hang 住？
+- Queue
+	- LinkedTransferQueue 
+	- SynchronousQueue 
+	- LinkedBlockingQueue 需要内存重分配？
+	- ArrayBlockingQueue 定长环形队列，满时阻塞住写队列，锁竞争较高
+	- ConcurrentLinkedQueue
+	- Disruptor
+- 降低内存屏障 AtomicLong.lazySet
+- gettimeofday不是系统调用，获取时间非常快，java如何调用?
+- Unicode 转 GBK 要查表，Unicode 转 UTF-8 只要算就行了?
+- 增大系统buffer可以降低iops
+- 目前 EagleEye 还是用的 FileOutputStream，最近看到 log4j 2 用的是 ByteBuffer + RandomAccessFile 的策略，号称性能提升 20～200%？
+- write O_APPEND？
+- 日志爆盘 导致p1故障  定时删日志   监控磁盘使用率！！！
+- 按文件大小和日期打日志，有利于运维   可以删除日志
+- Runtime.shutDownHook应用退出要做的一些事情
+- springboot
+- 长连接对于负载均衡有一定的影响，因为长连接指定连接到一台机器上，失去了负载均衡的实时调节能力
+- 动态部署
+	- DCEVM
+	- JRebel
+	- Spring Boot已经提供了DevTools
+- 线上调试工具
+	- HouseMD
+	- liteDebugger
+	- Zdebugger
+- DNS
+	- name server 指定域名由那台dns机器解析
+	- A 域名对应多个ip
+	- CNAME
+- CDN  
+	- 动态请求也走CDN，这样会有更快的链接速度和调度算法
+	- 如果CDN没有网站的https证书，CDN就不能获取http头部信息（不知道url，不能缓存），不能进行7层负载均衡，但是可以使用4层负载均衡
+	- 使用keyServer（由业务方自己维护）可以解决这个问题，用于解密浏览器传到cdn上的数据
+- 最终一致性可以用消息中间件来实现
+- BlockingQueue（put会block，最好不要用-会造成线程池满，offer不会block）
+	- ArrayBlockingQueue 数组
+	- LinkedBlockingQueue 队列
+	- SynchronousQueue offer必须要要有一个线程在take，否则失败，task同理
+	- 阻塞要有超时机制！！！！！
+	- 队列要有长度限制，否则为Integer.MAX_VALUE
+- ThreadPoolExecutor 
+	- corePoolSize 初始线程数量
+	- maximumPoolSize 最大线程数量
+	- ThreadFactory创建线程 可以改变线程的名称、优先级、线程组、守护进程状态
+	- keepAliveTime 多于corePoolSize的线程在超过keepAliveTime时会被释放
+	- BlockingQueue 用于传输和保持提交的任务
+		- 当运行的线程小于corePoolSize，添加新的线程而不是入队
+		- 当运行的线程大于corePoolSize，入队而不是添加新的线程
+		- 当队满时，创建新的线程
+		- 当线程等于maximumPoolSize，拒绝任务提交
+		- 直接提交
+		- 无界队列
+		- 有界队列
