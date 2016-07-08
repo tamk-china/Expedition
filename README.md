@@ -110,7 +110,7 @@
 	- SynchronousQueue offer必须要要有一个线程在take，否则失败，task同理
 	- 阻塞要有超时机制！！！！！
 	- 队列要有长度限制，否则为Integer.MAX_VALUE
-- ThreadPoolExecutor 
+- ThreadPoolExecutor implements ExecutorService
 	- corePoolSize 初始线程数量
 	- maximumPoolSize 最大线程数量
 	- ThreadFactory创建线程 可以改变线程的名称、优先级、线程组、守护进程状态
@@ -120,6 +120,24 @@
 		- 当运行的线程大于corePoolSize，入队而不是添加新的线程
 		- 当队满时，创建新的线程
 		- 当线程等于maximumPoolSize，拒绝任务提交
-		- 直接提交
-		- 无界队列
-		- 有界队列
+		- 策略
+			- 直接提交 SynchronousQueue 如果不存在可以立即运行的线程，返回失败，maxnumPoolSize必须大
+			- 无界队列 LinkedBlockingQueue 导致只能使用corePoolSize个线程， 容易引起OOM
+			- 有界队列 ArrayBlockingQueue 有助于防止资源耗尽
+- nginx配置学习
+- javah
+- native接口
+- mybatis
+	- session缓存，每次通信会创建一个session，事务在同一session中。事务中有可能取到同一对象
+	- 全局缓存
+- jdk8 新特性
+- osgi
+- 压测方式
+	- 回放日志
+	- 引流到单台机器上
+- 正常QPS=1000毫秒/超时平均响应时间*可以接受的最大线程数量
+- 限流
+	- 快速失败
+	- 自我否定攻击，造成部分正常访问失败
+- 在java启动初期，java不但解释执行java，还要进行jit编译，导致load飙高。
+	- 通过日志文件记录上次运行的profile信息，在下一次运行的时候读取日志并积极编译java方法，避过流量进来的高峰阶段。
