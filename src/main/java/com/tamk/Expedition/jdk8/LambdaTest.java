@@ -3,8 +3,9 @@ package com.tamk.Expedition.jdk8;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class Lambda {
+public class LambdaTest {
 	private static List<String> list = new ArrayList<>();
 
 	static {
@@ -19,11 +20,12 @@ public class Lambda {
 	}
 
 	private static void test2() {
-		
+		System.out.println(list.stream().map(String::toUpperCase).collect(Collectors.toList()));
 	}
 
 	public static void main(String[] args) {
 		test1();
+		test2();
 	}
 
 }
