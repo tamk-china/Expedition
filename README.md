@@ -9,6 +9,7 @@
 - jit
 - axon
 - optional
+- java 安全策略
 - jdk8
 	- steam
 	- base64
@@ -141,3 +142,4 @@
 	- 自我否定攻击，造成部分正常访问失败
 - 在java启动初期，java不但解释执行java，还要进行jit编译，导致load飙高。
 	- 通过日志文件记录上次运行的profile信息，在下一次运行的时候读取日志并积极编译java方法，避过流量进来的高峰阶段。
+- shell和python编程
