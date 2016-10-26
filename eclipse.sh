@@ -1,1 +1,1 @@
-mvn eclipse:clean eclipse:eclipse -U -DdownloadSources=true
+mvn eclipse:clean eclipse:eclipse -DdownloadSources=true
