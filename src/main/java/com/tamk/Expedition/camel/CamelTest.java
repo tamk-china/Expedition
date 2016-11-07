@@ -11,11 +11,12 @@ public class CamelTest {
 		ctx.addRoutes(new RouteBuilder() {
 
 			public void configure() throws Exception {
-				from("file:d:/conf/taobao-hsf.sar.zip").to("file:d:/test/a.zip");
+				from("file:d:/test?delay=3000").to("file:d:/test1");
 			}
 		});
 
 		ctx.start();
+		Thread.sleep(2500);
 		ctx.stop();
 	}
 
