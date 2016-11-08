@@ -3,16 +3,16 @@ package com.tamk.lock;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import com.tamk.lock.CLHLock.CLHNode;
+import com.tamk.lock.MCSLock.MCSNode;
 
 public class Main {
 	public static void main(String[] args) {
 		Runnable r = new Runnable() {
-			private CLHLock lock = new CLHLock();
+			private MCSLock lock = new MCSLock();
 
 			@Override
 			public void run() {
-				CLHNode node = new CLHNode();
+				MCSNode node = new MCSNode();
 				
 				try {
 					lock.lock(node);
