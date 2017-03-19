@@ -10,14 +10,14 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
  */
 public class MCSLock {
 	public static class MCSNode {
-		public volatile MCSNode next;
+		public MCSNode next;
 		private boolean isLocked = true;
 	}
 
 	@SuppressWarnings("unused")
-	private volatile MCSNode queue;
+	private volatile MCSNode tail;
 	private static final AtomicReferenceFieldUpdater<MCSLock, MCSNode> UPDATER = AtomicReferenceFieldUpdater
-			.newUpdater(MCSLock.class, MCSNode.class, "queue");
+			.newUpdater(MCSLock.class, MCSNode.class, "tail");
 
 	public void lock(MCSNode curNode) {
 		MCSNode pre = UPDATER.getAndSet(this, curNode);
