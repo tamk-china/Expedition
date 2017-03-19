@@ -10,6 +10,7 @@
 	<properties>
 		<akka.version>2.4.1</akka.version>
 		<spring.version>3.2.4.RELEASE</spring.version>
+		<lucence.version>6.1.0</lucence.version>
 	</properties>
 	<dependencies>
 		<!-- spring -->
@@ -149,6 +150,22 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 			<version>1.4.1.RELEASE</version>
+		</dependency>
+		<!-- lucence -->
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>${lucence.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-highlighter</artifactId>
+			<version>${lucence.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-analyzers-common</artifactId>
+			<version>${lucence.version}</version>
 		</dependency>
 	</dependencies>
 </project>
